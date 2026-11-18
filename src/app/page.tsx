@@ -23,7 +23,7 @@ export default function Home() {
         </header>
 
         <section>
-          <h2 className="section-heading animate-fade-up" style={{ animationDelay: "200ms" }}>Projects</h2>
+          <h2 className="section-heading animate-fade-up" style={{ animationDelay: "300ms" }}>Projects</h2>
           <ul>
             {projects.map((p, i) => {
               const body = (
@@ -38,7 +38,7 @@ export default function Home() {
                 </>
               );
               return (
-                <li key={p.name} className="animate-fade-up" style={{ animationDelay: `${250 + i * 30}ms` }}>
+                <li key={p.name} className="animate-fade-up" style={{ animationDelay: `${350 + i * 30}ms` }}>
                   {p.url ? (
                     <a href={p.url} target="_blank" rel="noopener noreferrer" className="project-list-item">
                       {body}
