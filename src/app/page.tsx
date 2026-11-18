@@ -2,6 +2,9 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { projects } from "@/lib/projects";
 
 export default function Home() {
+  const featuredProject = projects.find((project) => project.featured);
+  const otherProjects = projects.filter((project) => project !== featuredProject);
+
   return (
     <main className="page">
       <div className="page-container">
@@ -22,10 +25,31 @@ export default function Home() {
           </div>
         </header>
 
+        {featuredProject && (
+          <section
+            className="featured-project animate-fade-up"
+            style={{ animationDelay: "200ms" }}
+            aria-labelledby="featured-project-name"
+          >
+            <p className="featured-project-label mono">Currently building</p>
+            <h2 id="featured-project-name" className="featured-project-name">
+              {featuredProject.url ? (
+                <a href={featuredProject.url} target="_blank" rel="noopener noreferrer">
+                  {featuredProject.name}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ) : featuredProject.name}
+            </h2>
+            {featuredProject.description && (
+              <p className="featured-project-description">{featuredProject.description}</p>
+            )}
+          </section>
+        )}
+
         <section>
-          <h2 className="section-heading animate-fade-up" style={{ animationDelay: "200ms" }}>Projects</h2>
+          <h2 className="section-heading animate-fade-up" style={{ animationDelay: "300ms" }}>Projects</h2>
           <ul>
-            {projects.map((p, i) => {
+            {otherProjects.map((p, i) => {
               const body = (
                 <>
                   <div>
@@ -38,7 +62,7 @@ export default function Home() {
                 </>
               );
               return (
-                <li key={p.name} className="animate-fade-up" style={{ animationDelay: `${250 + i * 30}ms` }}>
+                <li key={p.name} className="animate-fade-up" style={{ animationDelay: `${350 + i * 30}ms` }}>
                   {p.url ? (
                     <a href={p.url} target="_blank" rel="noopener noreferrer" className="project-list-item">
                       {body}

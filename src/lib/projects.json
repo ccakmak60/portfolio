@@ -1,9 +1,10 @@
 [
   {
-    "name": "gemini-teleprompter",
-    "type": "Web App",
-    "url": "https://gemini-teleprompter.vercel.app",
-    "description": "Real-time teleprompter — listens to a conversation and drafts your next line with the Gemini Live API."
+    "name": "earcue",
+    "type": "Product",
+    "url": "https://earcue.lol",
+    "description": "earcue reads your mail, chats and calendar, and each morning cues at most three things worth doing, with replies drafted in your voice.",
+    "featured": true
   },
   {
     "name": "herdr-vault-graph",
