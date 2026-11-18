@@ -5,7 +5,6 @@ export type Project = {
   type: string;
   description?: string;
   url?: string;
-  featured?: boolean;
 };
 
 export const projects: Project[] = data;
