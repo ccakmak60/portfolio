@@ -3,7 +3,7 @@
     "name": "earcue",
     "type": "Product",
     "url": "https://earcue.lol",
-    "description": "earcue reads your mail, chats and calendar, and each morning cues at most three things worth doing, with replies drafted in your voice."
+    "description": "AI assistant in production that reads your mail, chats and calendar and each morning cues at most three things worth doing, with replies drafted in your voice. Nothing sends until you approve. Built with CI evals, versioned prompts, knowledge-graph recall, a desktop app and a Google Sheets add-on."
   },
   {
     "name": "herdr-vault-graph",
@@ -39,25 +39,16 @@
   },
   {
     "name": "agentforge",
-    "url": "https://github.com/ccakmak60/agentforge",
     "type": "Library",
     "description": "AgentForge is a multi-agent orchestration project scaffolded from the design document in docs/superpowers/specs/2026-04-16-agentforge-design.md."
   },
   {
     "name": "chatforge",
-    "url": "https://github.com/ccakmak60/chatforge",
     "type": "Library",
     "description": "A self-hostable, private, configurable domain chatbot platform."
   },
   {
-    "name": "marketingagent",
-    "url": "https://github.com/ccakmak60/marketingagent",
-    "type": "Library",
-    "description": "Autonomous AI agents that optimize your advertising campaigns 24/7."
-  },
-  {
     "name": "docs",
-    "url": "https://github.com/ccakmak60/docs",
     "type": "Docs",
     "description": "Use the starter kit to get your docs deployed and ready to customize."
   },
@@ -69,18 +60,12 @@
   },
   {
     "name": "skill-composition-guide",
-    "url": "https://github.com/ccakmak60/skill-composition-guide",
-    "type": "Guide"
-  },
-  {
-    "name": "Marketing-Designskills",
-    "url": "https://github.com/ccakmak60/Marketing-Designskills",
-    "type": "Resource",
-    "description": "A collection of AI agent skills focused on marketing tasks."
+    "type": "Guide",
+    "description": "A visual guide to composing AI agent skills, from atoms to molecules to compounds."
   },
   {
     "name": "dart",
-    "url": "https://github.com/ccakmak60/dart",
-    "type": "Library"
+    "type": "Library",
+    "description": "Prototype AI social network for trading agents: a Python agent engine with a FastAPI and React web app."
   }
 ]
