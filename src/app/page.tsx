@@ -1,32 +1,61 @@
-import Link from "next/link";
-
-const verifier = [
-  ["Claim supported", 22, 28],
-  ["Stale information", 26, 28],
-  ["Resolved task", 28, 28],
-  ["Correct recipient", 11, 13],
-  ["Unanswered request", 12, 13],
-] as const;
+import ThemeToggle from "@/components/ThemeToggle";
+import { projects } from "@/lib/projects";
 
 export default function Home() {
-  return <>
-    <header><p className="kicker">Overview</p><h1>Hey, I’m Jem<span>.</span></h1>
-      <p className="intro">I build AI agents and the tools to evaluate them.</p>
-      <p>My current project is <a href="https://earcue.lol">EarCue</a>. It reads your inbox, chats and calendar, picks up to three things worth doing, and drafts replies in your voice.</p>
-    </header>
-    <section><h2>Featured work</h2>
-      <article className="feature">
-        <a className="cover" href="https://earcue.lol" aria-label="Visit EarCue"><span>earcue</span></a>
-        <div className="panel"><p className="kicker">Model evaluation</p>
-          <h3>EarCue eval dashboard</h3>
-          <p>Can a second model spot a misleading recommendation? I compared its verdicts with hand-labelled examples across five checks.</p>
-          <figure><figcaption>Verifier agreement <small>Agreed / tested</small></figcaption>
-            {verifier.map(([name, agreed, total]) => <div className="metric" key={name}><span>{name}</span><i aria-hidden="true" style={{backgroundSize: `${100 * agreed / total}% 100%`}}/><code>{agreed}/{total}</code></div>)}
-          </figure>
-          <a className="action" href="https://evals.earcue.lol">Open eval dashboard</a>
-        </div>
-      </article>
-    </section>
-    <footer><Link href="/engineering/">Explore my AI engineering work</Link></footer>
-  </>;
+  return (
+    <main className="page">
+      <div className="page-container">
+        <header className="page-header">
+          <div className="page-header-row">
+            <div>
+              <h1 className="hero-title animate-fade-up" style={{ animationDelay: "0ms" }}>Jem</h1>
+              <p className="hero-tagline animate-fade-up" style={{ animationDelay: "100ms" }}>Building AI agent tooling</p>
+            </div>
+            <div className="header-actions animate-fade-in" style={{ animationDelay: "300ms" }}>
+              <a href="https://github.com/ccakmak60" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+              </a>
+              <ThemeToggle />
+            </div>
+          </div>
+        </header>
+
+        <section>
+          <h2 className="section-heading animate-fade-up" style={{ animationDelay: "300ms" }}>Projects</h2>
+          <ul>
+            {projects.map((p, i) => {
+              const body = (
+                <>
+                  <div>
+                    <span className="project-name">{p.name}</span>
+                    {p.description ? (
+                      <span className="project-desc">{p.description}</span>
+                    ) : null}
+                  </div>
+                  <span className="project-type mono">{p.type}</span>
+                </>
+              );
+              return (
+                <li key={p.name} className="animate-fade-up" style={{ animationDelay: `${350 + i * 30}ms` }}>
+                  {p.url ? (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="project-list-item">
+                      {body}
+                    </a>
+                  ) : (
+                    <div className="project-list-item">{body}</div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        <footer className="page-footer animate-fade-in" style={{ animationDelay: "1200ms" }}>
+          <p className="footer-text">&copy; {new Date().getFullYear()}</p>
+        </footer>
+      </div>
+    </main>
+  );
 }

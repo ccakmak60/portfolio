@@ -6,6 +6,12 @@
     "description": "earcue reads your mail, chats and calendar, and each morning cues at most three things worth doing, with replies drafted in your voice."
   },
   {
+    "name": "EarCue Evals",
+    "type": "Dashboard",
+    "url": "https://evals.earcue.lol",
+    "description": "Evaluation results for EarCue’s recommendations, reply drafts and project recall."
+  },
+  {
     "name": "Worker 755",
     "type": "Game",
     "url": "https://worker755.earcue.lol",
