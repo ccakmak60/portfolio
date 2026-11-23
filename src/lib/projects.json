@@ -6,6 +6,12 @@
     "description": "earcue reads your mail, chats and calendar, and each morning cues at most three things worth doing, with replies drafted in your voice."
   },
   {
+    "name": "Worker 755",
+    "type": "Game",
+    "url": "https://worker755.earcue.lol",
+    "description": "A browser game where an AI manager assigns you tasks as its subagent."
+  },
+  {
     "name": "herdr-vault-graph",
     "type": "Plugin",
     "url": "https://github.com/ccakmak60/herdr-vault-graph",
