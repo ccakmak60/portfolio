@@ -1,0 +1,120 @@
+.board {
+  --ink: #1a1610;
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  container-type: inline-size;
+  isolation: isolate;
+  overflow: hidden;
+  background: #dca72d url("/ui/weight-strings-paper.webp") center / cover;
+  color: var(--ink);
+  font-synthesis: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.legend,
+.group,
+.strings {
+  mix-blend-mode: multiply;
+}
+
+.legend {
+  position: absolute;
+  left: 7.037%;
+  top: 9.63%;
+  font-size: 18.148cqw;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.group,
+.strings {
+  position: absolute;
+  inset: 0;
+}
+
+.row {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 9.815%;
+  cursor: pointer;
+}
+
+.name {
+  position: absolute;
+  left: 7.407%;
+  top: 22.642%;
+  font-size: 5.556cqw;
+  line-height: 1;
+  letter-spacing: -0.012em;
+}
+
+.pin {
+  position: absolute;
+  left: 32.778%;
+  top: 50%;
+  translate: 0 -50%;
+  width: 3.148cqw;
+  height: 3.148cqw;
+  appearance: none;
+  border: max(1px, 0.278cqw) solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  cursor: inherit;
+}
+
+.pin:checked {
+  background: radial-gradient(circle, var(--ink) 58%, transparent 62%);
+}
+
+.pin:focus-visible {
+  outline: 1.5px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.strings {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--ink);
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.surface {
+  position: absolute;
+  cursor: grab;
+  touch-action: none;
+}
+
+.surface:active {
+  cursor: grabbing;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface,
+  .surface:active {
+    cursor: pointer;
+    touch-action: pan-y pinch-zoom;
+  }
+}
+
+@media (forced-colors: active) {
+  .pin {
+    appearance: auto;
+  }
+
+  .pin:focus-visible {
+    outline-color: Highlight;
+  }
+
+  .strings {
+    stroke: CanvasText;
+  }
+}

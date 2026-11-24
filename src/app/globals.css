@@ -78,6 +78,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 }
 
 .ui-work { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
+.ui-work ul { display: grid; gap: 1.5rem; }
 .ui-preview {
   display: grid;
   grid-template-columns: min(34%, 10rem) 1fr;

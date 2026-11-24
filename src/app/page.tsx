@@ -37,6 +37,16 @@ export default function Home() {
                 </div>
               </Link>
             </li>
+            <li>
+              <Link className="ui-preview" href="/ui/weight-strings/">
+                <Image src="/ui/weight-strings.webp" width={320} height={320} alt="" />
+                <div>
+                  <h3 className="project-name">Weight Strings</h3>
+                  <p className="project-desc">A variable-font weight selector with six pluckable strings.</p>
+                  <span className="text-link">Try the component</span>
+                </div>
+              </Link>
+            </li>
           </ul>
         </section>
 
