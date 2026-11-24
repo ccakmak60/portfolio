@@ -1,0 +1,127 @@
+.panel {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  width: min(100%, 540px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #1d4f55;
+  color: #f3e8d2;
+  font-family: var(--font-mercury-label), Georgia, serif;
+  user-select: none;
+}
+
+.still,
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.still {
+  background: url("/ui/mercury-switch-off.webp") center / cover;
+}
+
+.panel[data-on="true"] .still {
+  background-image: url("/ui/mercury-switch.webp");
+}
+
+.canvas {
+  visibility: hidden;
+}
+
+.panel[data-rendered="true"] .canvas {
+  visibility: visible;
+}
+
+.switch {
+  position: absolute;
+  inset: 18.5185% 5.9259% 7.4074% 2.963%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dragArea {
+  position: absolute;
+  inset: 0 0 38%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.dragArea:active {
+  cursor: grabbing;
+}
+
+.ring {
+  position: absolute;
+  top: 16.75%;
+  left: 1.4228%;
+  width: 93.0894%;
+  height: 28.5%;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px #f7ecd4, 0 0 0 4px #12363b;
+  opacity: 0;
+  rotate: -16deg;
+  pointer-events: none;
+}
+
+.panel[data-on="true"] .ring {
+  rotate: 16deg;
+}
+
+.switch:focus-visible {
+  outline: none;
+}
+
+.switch:focus-visible .ring {
+  opacity: 1;
+}
+
+.row {
+  position: absolute;
+  inset: auto 1.626% 0 4.878%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  height: 11.8519cqw;
+  padding-top: 2.963cqw;
+  font-size: 5.5556cqw;
+  line-height: 6.6667cqw;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  pointer-events: none;
+}
+
+.state {
+  color: rgb(243 232 210 / 72%);
+  font-style: italic;
+  font-weight: 450;
+  transform-origin: 100% 80%;
+  transition: color 340ms ease-out;
+}
+
+.panel[data-on="true"] .state {
+  color: #ffc97a;
+  transition-duration: 50ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .switch:focus-visible .ring {
+    outline: 2px solid Highlight;
+  }
+
+  .row {
+    background: Canvas;
+    color: CanvasText;
+  }
+}

@@ -58,6 +58,16 @@ export default function Home() {
                 </div>
               </Link>
             </li>
+            <li>
+              <Link className="ui-preview" href="/ui/mercury-switch/">
+                <Image src="/ui/mercury-switch.webp" width={540} height={540} alt="" />
+                <div>
+                  <h3 className="project-name">Mercury Switch</h3>
+                  <p className="project-desc">A glass tilt switch with liquid mercury and a glowing pilot light.</p>
+                  <span className="text-link">Try the component</span>
+                </div>
+              </Link>
+            </li>
           </UIWorkList>
         </section>
 
