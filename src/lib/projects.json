@@ -18,6 +18,12 @@
     "description": "A browser game where an AI manager assigns you tasks as its subagent."
   },
   {
+    "name": "Cinderwatch",
+    "type": "Game",
+    "url": "https://cinderwatch.pages.dev",
+    "description": "A self-playing 3D tower defense game by kevintngo. Watch the AI defend the keep or take command at any time."
+  },
+  {
     "name": "herdr-vault-graph",
     "type": "Plugin",
     "url": "https://github.com/ccakmak60/herdr-vault-graph",
