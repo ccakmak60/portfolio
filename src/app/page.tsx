@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import { projects } from "@/lib/projects";
 
@@ -21,6 +23,22 @@ export default function Home() {
             </div>
           </div>
         </header>
+
+        <section id="ui-work" className="ui-work" aria-labelledby="ui-work-title">
+          <h2 id="ui-work-title" className="section-heading">UI work</h2>
+          <ul>
+            <li>
+              <Link className="ui-preview" href="/ui/cinema-board/">
+                <Image src="/ui/cinema-board.webp" width={320} height={320} alt="" />
+                <div>
+                  <h3 className="project-name">Cinema board</h3>
+                  <p className="project-desc">A dot-matrix showtime selector with scrolling film titles and illuminated seat counts.</p>
+                  <span className="text-link">Try the component</span>
+                </div>
+              </Link>
+            </li>
+          </ul>
+        </section>
 
         <section>
           <h2 className="section-heading animate-fade-up" style={{ animationDelay: "300ms" }}>Projects</h2>

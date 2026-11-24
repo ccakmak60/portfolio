@@ -1,0 +1,64 @@
+.board {
+  --lamp: #e4ecff;
+  --core: #fff;
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 540px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-color: #050506;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1.35' fill='%2316171b'/%3E%3Ccircle cx='2' cy='2' r='1.05' fill='%231d1e23'/%3E%3Ccircle cx='1.62' cy='1.6' r='.42' fill='%2334363e'/%3E%3C/svg%3E");
+  background-size: calc(100% / 135) calc(100% / 135);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 99.3%, #ffffff12 99.6%, #0008 100%) 0 0 / calc(100% / 3) 100%,
+    linear-gradient(180deg, transparent 99.3%, #ffffff12 99.6%, #0008 100%) 0 0 / 100% calc(100% / 3),
+    linear-gradient(112deg, transparent 18%, #becdff0d 34%, #becdff04 47%, transparent 58%),
+    radial-gradient(120% 120% at 46% 42%, transparent 55%, #0005 100%);
+}
+
+.board > svg:not(.patterns), .row > svg { display: block; width: 100%; height: auto; }
+.patterns { position: absolute; }
+.board fieldset { border: 0; min-width: 0; }
+.row { display: block; position: relative; cursor: pointer; }
+.row:has(:disabled) { cursor: default; }
+.row:has(:disabled) .glow { opacity: .34; }
+.row:not(:has(:disabled)):hover { background-color: #b8cdf510; }
+
+.row input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.glow { filter: drop-shadow(0 0 .2px #aac3ff8c) drop-shadow(0 0 1.75px #789bff6b); }
+.scarce {
+  --lamp: #ff2d1f;
+  --core: #ffc2b8;
+  filter: drop-shadow(0 0 .2px #ff462899) drop-shadow(0 0 1.75px #ff28148c);
+}
+
+.ink, .band { transition: clip-path .2s steps(15, end); }
+.ink, .row input:checked + svg .band { clip-path: inset(0); }
+.band { clip-path: inset(0 100% 0 0); filter: drop-shadow(0 0 1.5px #6e96ff80); }
+.row input:checked + svg .ink { clip-path: inset(0 0 0 100%); }
+.focusRing { visibility: hidden; }
+.row input:focus-visible + svg .focusRing { visibility: visible; animation: chase .5s steps(1, end) infinite; }
+.colon { animation: blink 1s steps(1, end) infinite; }
+@keyframes blink { 50% { opacity: .22; } }
+@keyframes chase { 50% { transform: translateX(1px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ink, .band { transition: none; }
+  .colon, .row input:focus-visible + svg .focusRing { animation: none; }
+}
