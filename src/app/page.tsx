@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import UIWorkList from "@/components/UIWorkList";
 import { projects } from "@/lib/projects";
 
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
 
         <section id="ui-work" className="ui-work" aria-labelledby="ui-work-title">
           <h2 id="ui-work-title" className="section-heading">UI work</h2>
-          <ul>
+          <UIWorkList>
             <li>
               <Link className="ui-preview" href="/ui/cinema-board/">
                 <Image src="/ui/cinema-board.webp" width={320} height={320} alt="" />
@@ -57,7 +58,7 @@ export default function Home() {
                 </div>
               </Link>
             </li>
-          </ul>
+          </UIWorkList>
         </section>
 
         <section>
