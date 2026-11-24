@@ -47,6 +47,16 @@ export default function Home() {
                 </div>
               </Link>
             </li>
+            <li>
+              <Link className="ui-preview" href="/ui/turntable/">
+                <Image src="/ui/turntable.webp" width={320} height={320} alt="" />
+                <div>
+                  <h3 className="project-name">Turntable</h3>
+                  <p className="project-desc">A vinyl turntable with a three-speed selector and a spinning record label.</p>
+                  <span className="text-link">Try the component</span>
+                </div>
+              </Link>
+            </li>
           </ul>
         </section>
 

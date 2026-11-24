@@ -1,0 +1,8 @@
+.sun,
+:global(.dark) .moon {
+  display: none;
+}
+
+:global(.dark) .sun {
+  display: inline;
+}
