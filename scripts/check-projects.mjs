@@ -10,8 +10,11 @@ const execFileAsync = promisify(execFile);
 
 const DEV_ROOT = process.env.DEV_ROOT ?? "C:\\Users\\Administrator\\dev";
 // The portfolio site never lists itself as one of "its projects".
+// The public repo is `portfolio`; `ccakmak60.github.io` is the former GitHub Pages name.
 const SELF_DIR_NAME = "portfolio";
-const SELF_REPO_NAME = "ccakmak60.github.io";
+const SELF_REPO_NAMES = new Set(["portfolio", "ccakmak60.github.io"]);
+// Removed from the catalog on purpose. A local checkout or public repo must not pull them back.
+const OMITTED_NAMES = new Set(["marketingagent", "Marketing-Designskills"]);
 
 async function main() {
   const { default: entries } = await import(
@@ -54,7 +57,7 @@ async function main() {
   const entryNames = new Set(entries.map((e) => e.name));
 
   const missing = [...localDirs]
-    .filter((name) => !entryNames.has(name))
+    .filter((name) => !entryNames.has(name) && !OMITTED_NAMES.has(name))
     .sort();
 
   const unpublished = (githubRepos ?? [])
@@ -63,9 +66,10 @@ async function main() {
         !r.isPrivate &&
         !r.isFork &&
         !r.isArchived &&
-        r.name !== SELF_REPO_NAME &&
+        !SELF_REPO_NAMES.has(r.name) &&
         r.name.toLowerCase() !== "ccakmak60" &&
-        !entryNames.has(r.name)
+        !entryNames.has(r.name) &&
+        !OMITTED_NAMES.has(r.name)
     )
     .map((r) => r.name)
     .sort();
